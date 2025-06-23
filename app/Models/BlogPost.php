@@ -45,4 +45,17 @@ class BlogPost extends Model
 
     use HasFactory;
     //
+    protected static function booted()
+    {
+        static::creating(function (BlogPost $post) {
+            // якщо не прийшло з форми – генеруємо
+            $post->content_raw  ??= strip_tags($post->content_html ?? '');
+            $post->content_html ??= $post->content_raw;
+        });
+
+        static::updating(function (BlogPost $post) {
+            $post->content_raw  ??= strip_tags($post->content_html ?? '');
+            $post->content_html ??= $post->content_raw;
+        });
+    }
 }

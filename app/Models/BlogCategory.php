@@ -24,6 +24,7 @@ class BlogCategory extends Model
      *
      * @return BlogCategory
      */
+    protected $appends  = ['parent_title'];
     public function parentCategory()
     {
         //належить категорії
