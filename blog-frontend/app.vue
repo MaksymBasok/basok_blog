@@ -1,9 +1,5 @@
 <template>
-    <n-config-provider>
-        <Navigation />
+    <UApp>
         <NuxtPage />
-    </n-config-provider>
+    </UApp>
 </template>
-<script setup lang="ts">
-import Navigation from '~/components/Navigation.vue'
-</script>
